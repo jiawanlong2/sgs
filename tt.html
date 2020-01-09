@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+
+</div>
+</body>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
+        var urlKeys = window.location.search.substr(1); 
+        urlKeys = decodeURI(urlKeys); 
+        var r = urlKeys.match(reg);
+        window.console.log(r); 
+        if (r != null) {
+            return r[2];
+        } else {
+            return null;
+        }
+    }
+    var con=GetQueryString("con");
+    document.getElementById("app").innerHTML = con;
+</script>
+
+</html>
